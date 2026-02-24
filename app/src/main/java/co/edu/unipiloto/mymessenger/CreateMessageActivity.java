@@ -29,7 +29,14 @@ public class CreateMessageActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         historialView = findViewById(R.id.historial);
+
+        ArrayList<String> historialRecibido = getIntent().getStringArrayListExtra(ReceiveMessageActivity.EXTRA_HISTORIAL);
+        if (historialRecibido != null) {
+            historial = historialRecibido;
+        }
+        mostrarHistorial();
     }
 
 

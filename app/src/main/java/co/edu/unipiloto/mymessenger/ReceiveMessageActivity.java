@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class ReceiveMessageActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_HISTORIAL = "historial";
     private ArrayList<String> historial = new ArrayList<>();
     private TextView historialView;
 
@@ -45,6 +45,9 @@ public class ReceiveMessageActivity extends AppCompatActivity {
             messageView.setText("");
             mostrarHistorial();
         }
+        Intent intent = new Intent(this, CreateMessageActivity.class);
+        intent.putStringArrayListExtra(EXTRA_HISTORIAL, historial);
+        startActivity(intent);
     }
 
     private void mostrarHistorial() {
